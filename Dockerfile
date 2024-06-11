@@ -18,6 +18,9 @@ RUN chmod 1777 /tmp
 RUN apt-get update && apt-get install -y \
 	nginx \
 	curl \
+	gcc \
+	g++ \
+	unzip \
 	git \
 	vim \
 	supervisor \
