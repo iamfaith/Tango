@@ -1,6 +1,6 @@
 # Autolab - autograding docker image
 
-FROM ubuntu:18.04
+FROM ubuntu
 MAINTAINER Autolab Team <autolab-dev@andrew.cmu.edu>
 
 RUN apt-get update && apt-get install -y \
@@ -8,6 +8,10 @@ RUN apt-get update && apt-get install -y \
   gcc \
   git \
   make \
+	g++ \
+	unzip \
+	python3 \
+	python3-pip \
   sudo \
   && rm -rf /var/lib/apt/lists/*
 
@@ -32,3 +36,6 @@ RUN apt-get remove -y git && apt-get -y autoremove && rm -rf Tango/
 # Check installation
 RUN ls -l /home
 RUN which autodriver
+
+
+RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple PyYAML
